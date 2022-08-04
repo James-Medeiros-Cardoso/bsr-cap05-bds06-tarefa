@@ -25,3 +25,7 @@ INSERT INTO tb_movie (title, sub_title, year, img_url, synopsis, genre_id) VALUE
 INSERT INTO tb_review (text, movie_id, user_id) VALUES ('Meh, filme OK', 1, 1);
 INSERT INTO tb_review (text, movie_id, user_id) VALUES ('Gostei e recomendo!', 1, 1);
 INSERT INTO tb_review (text, movie_id, user_id) VALUES ('Que Filme!!!', 2, 1);
+
+INSERT INTO tb_review (text, movie_id, user_id) VALUES ('Filme muito bom!!! - James [1]', 2, 2);
+INSERT INTO tb_review (text, movie_id, user_id) VALUES ('Filme muito bom!!! - James [2]', 3, 2);
+INSERT INTO tb_review (text, movie_id, user_id) VALUES ('Filme muito bom!!! - James [3]', 3, 2);

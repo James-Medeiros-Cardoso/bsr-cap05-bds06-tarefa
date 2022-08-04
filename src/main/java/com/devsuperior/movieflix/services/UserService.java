@@ -39,7 +39,7 @@ public class UserService implements UserDetailsService {
 	
 	@Transactional(readOnly = true)
 	public UserDTO profileForCurrentUser() {
-		User user = authService.authenticated();
+		User user = authService.authenticated(); // Busca o usuário logado.
 		User userProfile = repository.findByEmail(user.getEmail());
 		return new UserDTO(userProfile);
 	}
