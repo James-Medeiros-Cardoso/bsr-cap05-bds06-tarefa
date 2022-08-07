@@ -70,10 +70,13 @@ public class MovieService {
 	@Transactional(readOnly = true)
 	public Page<MovieCardDTO> findMovieByGenre(Long genreId, Pageable pageable) {
 		
-		Optional<Genre> genre = genreRepository.findById(genreId);
-		Genre genreEntity = genre.orElseThrow(() -> new ResourceNotFoundException("Entity not Found. [id = "+genreId+"]"));
+		Genre genre = (genreId == 0) ? null : genreRepository.getOne(genreId);
 		
-		Page<Movie> pageMovie = movieRepository.findAllMovieByGenreOrderByTitle(genreEntity, pageable);
+		//Genre genreEntity = genre.orElseThrow(() -> new ResourceNotFoundException("Entity not Found. [id = "+genreId+"]"));
+		
+		//Page<Movie> pageMovie = movieRepository.findAllMovieByGenreOrderByTitle(genreEntity, pageable);
+		
+		Page<Movie> pageMovie = movieRepository.findMoviesByGenre(genre, pageable);
 		
 		return pageMovie.map(x -> new MovieCardDTO(x));
 	}
